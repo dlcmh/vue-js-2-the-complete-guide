@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>012 Binding to Attributes</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+  </head>
+  <body>
+    <div id="app">
+      <input type="text" v-on:input="changeTitle">
+      <p>{{ title }}</p>
+      <p>{{ sayHello() }}</p>
+      <p>{{ sayHello() }} - <a v-bind:href="link">Google</a></p>
+      <p>{{ sayHolaWithTitle() }}</p>
+    </div>
+
+    <script>
+      new Vue({
+        el: '#app',
+        data: {
+          title: 'Hello World!',
+          link: 'https://google.com'
+        },
+        methods: {
+          changeTitle: function(event) {
+            this.title = event.target.value
+          },
+          sayHello: function() {
+            return 'Hello!';
+          },
+          sayHolaWithTitle: function() {
+            return 'Hola ' + this.title;
+          }
+        }
+      })
+    </script>
+  </body>
+</html>
