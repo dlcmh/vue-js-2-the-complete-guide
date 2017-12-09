@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>010 How the VueJS Template Syntax and Instance Work Together</title>
+    <title>011 Accessing Data in the Vue Instance</title>
     <script src="https://cdn.jsdelivr.net/npm/vue"></script>
   </head>
   <body>
@@ -10,6 +10,7 @@
       <input type="text" v-on:input="changeTitle">
       <p>{{ title }}</p>
       <p>{{ sayHello() }}</p>
+      <p>{{ sayHolaWithTitle() }}</p>
     </div>
 
     <script>
@@ -24,6 +25,9 @@
           },
           sayHello: function() {
             return 'Hello!';
+          },
+          sayHolaWithTitle: function() {
+            return 'Hola ' + this.title;
           }
         }
       })
