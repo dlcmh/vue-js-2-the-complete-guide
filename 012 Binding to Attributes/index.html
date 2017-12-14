@@ -7,11 +7,7 @@
   </head>
   <body>
     <div id="app">
-      <input type="text" v-on:input="changeTitle">
-      <p>{{ title }}</p>
-      <p>{{ sayHello() }}</p>
       <p>{{ sayHello() }} - <a v-bind:href="link">Google</a></p>
-      <p>{{ sayHolaWithTitle() }}</p>
     </div>
 
     <script>
@@ -22,14 +18,8 @@
           link: 'https://google.com'
         },
         methods: {
-          changeTitle: function(event) {
-            this.title = event.target.value
-          },
           sayHello: function() {
-            return 'Hello!';
-          },
-          sayHolaWithTitle: function() {
-            return 'Hola ' + this.title;
+            return this.title;
           }
         }
       })
