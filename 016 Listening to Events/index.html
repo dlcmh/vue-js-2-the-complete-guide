@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>016 Listening to Events</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+  </head>
+  <body>
+    <div id="app">
+      <button v-on:click="increase">Click me</button>
+      <p>{{ counter }}</p>
+    </div>
+
+    <script>
+      new Vue({
+        el: '#app',
+        data: {
+          counter: 0
+        },
+        methods: {
+          // ES6 method definition = shorthand for a function assigned to a
+          // method name - https://developer.mozilla.org/en-US/docs/Web/
+          // JavaScript/Reference/Functions/Method_definitions
+          increase() {
+            this.counter++;
+          }
+          // increase: function() {
+          //   this.counter++;
+          // }
+        }
+      })
+    </script>
+  </body>
+</html>
