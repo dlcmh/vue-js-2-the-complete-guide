@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>025 Saving Time with Shorthands</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+  </head>
+  <body>
+    <div id="app">
+      <!-- <button v-on:click="changeLink">Click to change link</button> -->
+      <button @click="changeLink">Click to change link</button>
+      <!-- <a v-bind:href="link">Link</a> -->
+      <a :href="link">Link</a>
+    </div>
+
+    <script>
+      new Vue({
+        el: '#app',
+        data: {
+          link: 'https://google.com'
+        },
+        methods: {
+          changeLink(event) {
+            this.link = 'https://apple.com'
+          }
+        }
+      })
+    </script>
+  </body>
+</html>
