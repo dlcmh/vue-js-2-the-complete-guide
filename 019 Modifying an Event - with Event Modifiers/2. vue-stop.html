@@ -17,16 +17,10 @@
       new Vue({
         el: '#app',
         data: {
-          counter: 0,
-          eventType: '',
           x: 0,
           y: 0
         },
         methods: {
-          increase(step, event) {
-            this.counter += step
-            this.eventType = event.type
-          },
           updateCoordinates(event) {
             this.x = event.clientX
             this.y = event.clientY

@@ -8,7 +8,7 @@
   <body>
     <div id="app">
       <button v-on:click="increase(2, $event)">Click me</button>
-      <p>{{ counter }} {{ eventType == '' ? null : `(${eventType} event)` }}</p>
+      <p>{{ counter }} {{ eventType === '' ? null : `(${eventType} event)` }}</p>
       <p v-on:mousemove="updateCoordinates">Coordinates: {{ x }} / {{ y }}</p>
     </div>
 

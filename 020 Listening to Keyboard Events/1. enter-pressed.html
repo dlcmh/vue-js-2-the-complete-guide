@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>020 Listening to Keyboard Events</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+  </head>
+  <body>
+    <div id="app">
+      <!-- https://vuejs.org/v2/guide/events.html#Key-Modifiers -->
+      <input type="text" v-on:keyup.enter="alertMe">
+    </div>
+
+    <script>
+      new Vue({
+        el: '#app',
+        methods: {
+          alertMe(event) {
+            alert('Alert!')
+          }
+        }
+      })
+    </script>
+  </body>
+</html>
