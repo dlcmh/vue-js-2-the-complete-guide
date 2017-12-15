@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>023 Reacting to Changes with Computed Properties</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+  </head>
+  <body>
+    <div id="app">
+      <button v-on:click="counter++">Increase</button>
+      <button v-on:click="counter--">Decrease</button>
+      <button v-on:click="secondCounter++">Increase Second Counter</button>
+      <p>Counter: {{ counter }}</p>
+      <p>Second Counter: {{ secondCounter }}</p>
+      <p>Output: {{ output }}</p><!-- Note: output, and not output() -->
+      <p>Result: {{ result() }}</p>
+    </div>
+
+    <script>
+      new Vue({
+        el: '#app',
+        data: {
+          counter: 0,
+          secondCounter: 0
+        },
+        computed: {
+          output() {
+            // pro: only gets updated when data property counter updates
+            console.log('in output()');
+            return this.counter > 5 ? 'Greater than 5' : '5 or smaller'
+          }
+        },
+        methods: {
+          result() {
+            // con: gets run _every time_ any data property changes, hence,
+            // if this is an expensive or long-running function, it will get
+            // called even if a data property that it doesn't depend on changes,
+            // eg secondCounter
+            console.log('in result()');
+            return this.counter > 5 ? 'Greater than 5' : '5 or smaller'
+          }
+        }
+      })
+    </script>
+  </body>
+</html>

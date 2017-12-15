@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>023 Reacting to Changes with Computed Properties</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+  </head>
+  <body>
+    <div id="app">
+      <button v-on:click="counter++">Increase</button>
+      <button v-on:click="counter--">Decrease</button>
+      <p>Counter: {{ counter }}</p>
+      <p>Result: {{ result() }}</p>
+    </div>
+
+    <script>
+      new Vue({
+        el: '#app',
+        data: {
+          counter: 0
+        },
+        methods: {
+          result() {
+            return this.counter > 5 ? 'Greater than 5' : '5 or smaller'
+          }
+        }
+      })
+    </script>
+  </body>
+</html>
