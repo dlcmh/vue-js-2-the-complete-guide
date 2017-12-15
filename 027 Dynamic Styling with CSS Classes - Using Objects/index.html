@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>026 Dynamic Styling with CSS Classes - Basics</title>
+    <title>027 Dynamic Styling with CSS Classes - Using Objects</title>
     <style>
       .demo { width: 100px; height: 100px; background-color: gray; display: inline-block; margin: 10px; }
       .red { background-color: red; }
@@ -13,8 +13,7 @@
   </head>
   <body>
     <div id="app">
-      <!-- :class merges with class; single quotes needed if class name has a dash, eg 'red-color' -->
-      <div class="demo" @click="attachRed = !attachRed" :class="{red: attachRed}"></div>
+      <div class="demo" @click="attachRed = !attachRed" :class="divClasses"></div>
       <div class="demo" :class="{red: attachRed}"></div>
       <div class="demo"></div>
     </div>
@@ -24,6 +23,14 @@
         el: '#app',
         data: {
           attachRed: false
+        },
+        computed: {
+          divClasses() {
+            return {
+              red: this.attachRed,
+              blue: !this.attachRed
+            }
+          }
         }
       })
     </script>
