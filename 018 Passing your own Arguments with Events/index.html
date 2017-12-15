@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>018 Passing your own Arguments with Events</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+  </head>
+  <body>
+    <div id="app">
+      <button v-on:click="increase(2, $event)">Click me</button>
+      <p>{{ counter }} {{ eventType == '' ? null : `(${eventType} event)` }}</p>
+      <p v-on:mousemove="updateCoordinates">Coordinates: {{ x }} / {{ y }}</p>
+    </div>
+
+    <script>
+      new Vue({
+        el: '#app',
+        data: {
+          counter: 0,
+          eventType: '',
+          x: 0,
+          y: 0
+        },
+        methods: {
+          increase(step, event) {
+            this.counter += step
+            this.eventType = event.type
+          },
+          updateCoordinates(event) {
+            this.x = event.clientX
+            this.y = event.clientY
+          }
+        }
+      })
+    </script>
+  </body>
+</html>
