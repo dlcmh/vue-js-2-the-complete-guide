@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>030 Styling Elements with the Array Syntax</title>
+    <style>
+      .demo { width: 100px; height: 100px; background-color: gray; display: inline-block; margin: 10px; }
+    </style>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+  </head>
+  <body class="container">
+    <div id="app">
+      <div class="demo" :style="{backgroundColor: color}"></div>
+      <div class="demo" :style="myStyle"></div>
+      <div class="demo" :style="[myStyle, {height: width + 'px'}]"></div>
+      <hr>
+      <p>Color: <input type="text" v-model="color"></p>
+      <p>Width (px): <input type="text" v-model="width"></p>
+    </div>
+
+    <script>
+      new Vue({
+        el: '#app',
+        data: {
+          color: 'gray',
+          width: 100
+        },
+        computed: {
+          myStyle() {
+            return {
+              backgroundColor: this.color,
+              width: this.width + 'px'
+            }
+          }
+        }
+      })
+    </script>
+  </body>
+</html>
